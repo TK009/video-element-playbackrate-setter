@@ -85,16 +85,15 @@ document.addEventListener('DOMNodeInserted', function() {
 window.addEventListener('keydown', function(event) {
     var keycode = event.charCode || event.keyCode;
 
-    // decrease playback rate if '[' is pressed
-    if (keycode === 91 || keycode === 123 || keycode === 219) {
+    // decrease playback rate if '[', a, or system keys is pressed
+    if (keycode === 91 || keycode === 123 || keycode === 219 || keycode === 65 ) {
         currentPlaybackRate -= speedStep;
     }
 
-    // increase playback rate if ']' is pressed
-    if (keycode === 93 || keycode === 125 || keycode === 221) {
+    // increase playback rate if ']', e, u, or system keys is pressed
+    if (keycode === 93 || keycode === 125 || keycode === 221 || keycode === 69 || keycode === 85) {
         currentPlaybackRate += speedStep;
     }
-
     // need to set playback rate for all keydown events since it seems like the
     // standard youtube keyboard shortcuts--like the arrow keys to skip forward
     // and backwards--are set to reset the playback rate to 1.

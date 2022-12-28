@@ -26,7 +26,7 @@
 
 
 var currentPlaybackRate = 1;  // default playback rate.
-var speedStep = 0.1;
+var speedStep = 0.5;
 
 
 var infobox = document.createElement("h1");

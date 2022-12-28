@@ -76,10 +76,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// FIXME: throttle this before uncommenting
 // youtube videos don't always load on the DOMContentLoaded event :-/
-document.addEventListener('DOMNodeInserted', function() {
-    setPlaybackRate(currentPlaybackRate, false);
-});
+//document.addEventListener('DOMNodeInserted', function() {
+//    setPlaybackRate(currentPlaybackRate, false);
+//});
 
 
 // mimic vlc keyboard shortcuts

@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         video-element-rate-controller
 // @namespace    https://github.com/mirnhoj/video-element-playbackrate-setter
-// @version      0.2
+// @version      0.3
 // @description  add keyboard shortcuts that will increase/decrease the playback rate for video elements.
 // @include      http*://*.youtube.com/*
 // @include      http*://*.gfycat.com/*
 // @include      http*://*.vimeo.com/*
+// @include      http*://twitter.com/*
 // @include      https://www.facebook.com/video.php*
 // @include      https://www.facebook.com/*/videos/*
 // @include      https://www.kickstarter.com/*

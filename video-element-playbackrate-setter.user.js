@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         video-element-rate-controller
 // @namespace    https://github.com/mirnhoj/video-element-playbackrate-setter
-// @version      0.4
+// @version      0.5
 // @description  add keyboard shortcuts that will increase/decrease the playback rate for video elements.
 // @include      http*://*.youtube.com/*
 // @include      http*://*.gfycat.com/*
@@ -87,13 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('keydown', function(event) {
     var keycode = event.charCode || event.keyCode;
 
-    // decrease playback rate if '[', a, or system keys is pressed
-    if (keycode === 91 || keycode === 123 || keycode === 219 || keycode === 65 ) {
+    // decrease playback rate if '[', a, or system keys is pressed, removed: keycode === 91 || keycode === 123 || keycode === 219 || 
+    if ( keycode === 65 ) {
         currentPlaybackRate -= speedStep;
     }
 
-    // increase playback rate if ']', e, u, or system keys is pressed
-    if (keycode === 93 || keycode === 125 || keycode === 221 || keycode === 69 || keycode === 85) {
+    // increase playback rate if ']', e, u, or system keys is pressed, removed: keycode === 93 || keycode === 125 || keycode === 221 || 
+    if (keycode === 69 || keycode === 85) {
         currentPlaybackRate += speedStep;
     }
     // need to set playback rate for all keydown events since it seems like the

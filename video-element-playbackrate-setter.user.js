@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         video-element-rate-controller
 // @namespace    https://github.com/mirnhoj/video-element-playbackrate-setter
-// @version      0.5
+// @version      0.6
 // @description  add keyboard shortcuts that will increase/decrease the playback rate for video elements.
 // @include      http*://*.youtube.com/*
 // @include      http*://*.gfycat.com/*
@@ -70,10 +70,9 @@ function setPlaybackRate(rate, showInfobox) {
     }
 }
 
+const setCurrent = () =>     setPlaybackRate(currentPlaybackRate, true);
 
-document.addEventListener('DOMContentLoaded', function() {
-    setPlaybackRate(currentPlaybackRate, true);
-});
+document.addEventListener('DOMContentLoaded', setCurrent);
 
 
 // FIXME: throttle this before uncommenting
@@ -85,10 +84,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // mimic vlc keyboard shortcuts
 window.addEventListener('keydown', function(event) {
-    var keycode = event.charCode || event.keyCode;
+    if (event.isComposing) return
+    
+    const keycode = event.charCode || event.keyCode;
 
     // decrease playback rate if '[', a, or system keys is pressed, removed: keycode === 91 || keycode === 123 || keycode === 219 || 
-    if ( keycode === 65 ) {
+    if ( keycode === 65 || (keycode == 69 && event.shiftKey)) {
         currentPlaybackRate -= speedStep;
     }
 
@@ -99,5 +100,5 @@ window.addEventListener('keydown', function(event) {
     // need to set playback rate for all keydown events since it seems like the
     // standard youtube keyboard shortcuts--like the arrow keys to skip forward
     // and backwards--are set to reset the playback rate to 1.
-    setPlaybackRate(currentPlaybackRate, true);
+    setCurrent()
 });
